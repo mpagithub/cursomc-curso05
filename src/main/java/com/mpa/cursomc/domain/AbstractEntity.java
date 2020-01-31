@@ -13,10 +13,14 @@ import javax.persistence.MappedSuperclass;
 // Obs: o abstract abaixo, vai possibilitar que qualquer classe que queira utilizar esta classe, faça isso por herança e não por instância
 public abstract class AbstractEntity<ID extends Serializable> implements Serializable{
 
+	/*
+    - Precisa implementar Serializable : A interface Serializable diz que os objetos dessa classe poderão ser 
+      convertidos numa sequencia de bytes, isso para que possa ser gravados em arquivos, trafegar em redes etc... 
+      e toda classe que implementa, precisa ter um número de versão padrão  serialVersionUID = 1L;  */
+
+	
 	//private static final long serialVersionUID = 1L;        Não precisa disso por causa da notação @SuppressWarnings("serial")
-	
-	// OBS.:  Toda classe de entidades, por boas práticas, deve implementar Serializable, conforme acima.
-	
+		
 	
 	
 	@Id 

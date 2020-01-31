@@ -7,13 +7,10 @@ import javax.persistence.Entity;
 public class Categoria extends AbstractEntity<Integer> {
 	
 		
-	/*
-    - Precisa implementar Serializable : A interface Serializable diz que os objetos dessa classe poderão ser 
-      convertidos numa sequencia de bytes, isso para que possa ser gravados em arquivos, trafegar em redes etc... 
-      e toda classe que implementa, precisa ter um número de versão padrão  serialVersionUID = 1L;  */
 
 	private String nome;
 	
+	public Categoria() {}
 	
 	public Categoria(Integer id,  String nome) {
 		this.setId(id); 
