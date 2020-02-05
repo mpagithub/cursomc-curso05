@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @SuppressWarnings("serial")
 @Entity  // Entidade do JPA
 public class Produto extends AbstractEntity<Integer> {
@@ -16,15 +18,15 @@ public class Produto extends AbstractEntity<Integer> {
 	private String nome;
 	private Double preco;
 	
+	@JsonBackReference  // Significa que do outro lado já foram serializados os objetos produtos, e aqui, a lista de categorias de cada produto deve ser omitida. 
 	@ManyToMany   
 	@JoinTable(name = "PRODUTO_CATEGORIA", joinColumns = @JoinColumn(name = "produto_id"), inverseJoinColumns = @JoinColumn(name = "categoria_id"))
 	// Ta sendo criado uma terceira tabela PRODUTO_CATEGORIA no banco de dados, que vai fazer o relacionamento e armazenar as chaves das duas tabelas
 	private List<Categoria> categorias = new ArrayList<Categoria>();
 	
 	
-	
 	public Produto() {}
-
+	
 	public Produto(Integer id, String nome, Double preco) {
 		this.setId(id); 
 		this.nome = nome;

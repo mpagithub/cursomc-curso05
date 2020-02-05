@@ -7,23 +7,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mpa.cursomc.domain.Categoria;
-import com.mpa.cursomc.services.CategoriaService;
+import com.mpa.cursomc.domain.Cliente;
+import com.mpa.cursomc.services.CLienteService;
 
 @RestController
-@RequestMapping(value="/categorias")  // /categorias é um end point rest
-public class CategoriaResource {
+@RequestMapping(value="/clientes")  // /clientes é um end point rest
+public class ClienteResource {
 
 	@Autowired
-	CategoriaService service;
+	CLienteService service;
 	
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)   // GET, PUT, DELETE, POST    são verbos HTTP
 	public ResponseEntity<?> find(@PathVariable Integer id) {  
 		/*  ResponseEntity<?>   ResponseEntity é um tipo especial do Spring que vai encapsular várias informações de uma resposta HTTP para um serviço REST. Já a ? 
-		    significa que pode ser qualquer tipo, pois pode encontrar ou não uma Categoria na pesquisa.  */
+		    significa que pode ser qualquer tipo, pois pode encontrar ou não um Cliente	 na pesquisa.  */
 		       
-		Categoria obj = service.buscar(id);
+		Cliente obj = service.buscar(id);
 		/* Aqui vamos ter de implementar a captura da exceção vinda do método buscar da camada de serviço e mandar um json apropriado como resposta http.
 		   Poderíamos cria um try catch aqui, porém, não é muito elegante e apropriado usá-lo aqui nesta camada, então vamos utilizar um Handler, que é 
 		   um objeto especial que vai interceptar a exception e vai lançar a resposta http adequada, no caso 404. Então, quando uma exception do tipo
