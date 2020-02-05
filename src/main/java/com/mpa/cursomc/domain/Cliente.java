@@ -10,7 +10,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mpa.cursomc.domain.enums.TipoCliente;
 
 
@@ -26,7 +26,7 @@ public class Cliente extends AbstractEntity<Integer> {
 	// OBS.:  Essa classe grava um integer para o tipo de cliente, mas expoem para o mundo, um enum TipoCliente, getTipo() retorna um TipoCliente
 	
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	/* Quando se tem relacionamentos bidirecionais, pode ocorrer o problema de referência cíclica, quando vc busca um cliente, a busca
 	   tenta trazer a lista de endereços dele, só que cada endereço tbm faz referencia a um cliente. Gera erro  - Expected ',' instead of ''  -- ~[jackson-databind-;
 	   Para que os endereços sejam serializados ao pesquisar um cliente, sem que aconteça referência cíclica, use @JsonManagedReference.
@@ -38,7 +38,7 @@ public class Cliente extends AbstractEntity<Integer> {
 
 	@OneToMany(mappedBy="cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
-	
+		
 	
 	@ElementCollection                  // Para que o JPA crie a tabela no banco com base na collection abaixo
 	@CollectionTable(name="TELEFONE")   // Define o nome da tabela que será criada no banco 
@@ -46,6 +46,8 @@ public class Cliente extends AbstractEntity<Integer> {
 	// Como a telefone no diagrama refere-se a uma entidade fraca, não tem nem id, totalmente dependente da tabela cliente, pode se fazer conforme acima...
 	
 	
+	//@JsonBackReference   // Os pedidos de um cliente não serão serializados porque os clientes de um pedido serão
+	@JsonIgnore
 	@OneToMany(mappedBy="cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 	

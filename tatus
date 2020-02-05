@@ -1,0 +1,41 @@
+[33mcommit 7f2cee7c284ca1ce8f1e482cd93fcdf8506dbab5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Marcelo Almeida <mpaemail@gmail.com>
+Date:   Wed Feb 5 12:08:08 2020 -0300
+
+    Até o Sessão 2 / 24
+
+[33mcommit e17137601cd1c5f3285a5d5e998e843a36deeb2e[m
+Author: Marcelo Almeida <mpaemail@gmail.com>
+Date:   Fri Jan 31 18:26:02 2020 -0300
+
+    Relacionamento Categorias  e Produtos
+
+[33mcommit fb7c09221bd0eee2f6f7bcb797a018fe0c4d7e73[m
+Author: Marcelo Almeida <mpaemail@gmail.com>
+Date:   Fri Jan 31 17:02:23 2020 -0300
+
+    Criando Repository e Service para Categoria
+
+[33mcommit fc5b1375451ccdb63bafffad0b299522f6fb0222[m
+Author: Marcelo Almeida <mpaemail@gmail.com>
+Date:   Fri Jan 31 12:25:43 2020 -0300
+
+    Banco de dados H2 e criação automáttica da base de dados
+
+[33mcommit c335edafd57bc963ae2ffad8e8b1ee5630621e24[m
+Author: Marcelo Almeida <mpaemail@gmail.com>
+Date:   Fri Jan 31 10:35:35 2020 -0300
+
+    Testando a primeira classe de domínio - Categoria
+
+[33mcommit 29e2e72da2ca8a0f89f564e626603aeec42ba040[m
+Author: Marcelo Almeida <mpaemail@gmail.com>
+Date:   Fri Jan 31 09:41:14 2020 -0300
+
+    REST testado
+
+[33mcommit 2095f32bfff1d05b032e62395aef3647f1e6b117[m
+Author: Marcelo Almeida <mpaemail@gmail.com>
+Date:   Thu Jan 30 20:53:56 2020 -0300
+
+    Projeto criado.

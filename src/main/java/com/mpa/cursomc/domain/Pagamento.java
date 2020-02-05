@@ -10,9 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mpa.cursomc.domain.enums.EstadoPagamento;
 
-@Entity
+@Entity	
 @Inheritance(strategy=InheritanceType.JOINED)    
 // @Inheritance para mapeamento de herança, pois, Pagamento é pai de PagamentoComBoleto e PagamentoComCartao
 /* Para mapear uma herança, temos 2 estratégias, ou faço um tabelão com todos os campos de PagamentoComBoleto e PagamentoComCartao e quando vc instanciar 
@@ -34,6 +35,8 @@ public abstract class Pagamento implements Serializable {
 	private Integer id;   // Esse Id tem de ser o do pedido corespondente...
 	private Integer estado;
 	
+	//@JsonBackReference
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="pedido_id")   // Gera um mapeamento com o atributo Id da tabela pedido   
 	@MapsId  // Vai mapear o Id de Pedido, como tbm sendo o Id de Pagamento.  --  A chave primária desta tabela será tbm a chave estrangeira PEDIDO_ID

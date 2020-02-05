@@ -6,16 +6,17 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @SuppressWarnings("serial")
 @Entity
 public class Estado extends AbstractEntity<Integer> {
-
+	
 	
 	private String nome;
 
-	@JsonBackReference	
+	//@JsonBackReference
+	@JsonIgnore	
 	@OneToMany(mappedBy="estado")  // estado, porque foi ele o atributo lá do outro lado que mapeou o ManyToOne
 	private List<Cidade> cidades = new ArrayList<>();
 	
