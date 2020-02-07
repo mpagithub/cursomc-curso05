@@ -23,7 +23,7 @@ public class ClienteResource {
 		/*  ResponseEntity<?>   ResponseEntity é um tipo especial do Spring que vai encapsular várias informações de uma resposta HTTP para um serviço REST. Já a ? 
 		    significa que pode ser qualquer tipo, pois pode encontrar ou não um Cliente	 na pesquisa.  */
 		       
-		Cliente obj = service.buscar(id);
+		Cliente obj = service.find(id);
 		/* Aqui vamos ter de implementar a captura da exceção vinda do método buscar da camada de serviço e mandar um json apropriado como resposta http.
 		   Poderíamos cria um try catch aqui, porém, não é muito elegante e apropriado usá-lo aqui nesta camada, então vamos utilizar um Handler, que é 
 		   um objeto especial que vai interceptar a exception e vai lançar a resposta http adequada, no caso 404. Então, quando uma exception do tipo
